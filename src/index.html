@@ -6,11 +6,24 @@
 
     <body data-ng-app="OmegaRest" data-ng-controller="omegaRestCtr">
 
-        <h1>{{name}}</h1>
-        <div>Web App Angularjs Per Omega</div>
-        <div><img src="https://upload.wikimedia.org/wikipedia/commons/2/29/Red_button.png"></div>
+        <div id="header" style="text-align:  center; background-color: cadetblue">{{name}}</div>
 
+        <h1 style="text-align: center">{{name}}</h1>
+       
+        <div ng-click="action()" style="text-align: center">
+            <img style="cursor: pointer" src="https://upload.wikimedia.org/wikipedia/commons/2/29/Red_button.png">
+        </div>
 
+        <div style="margin-top: 10px; width: 300px; float: left;">
+            <header ng-if="data"><h2>List of sources<h2></header>
+                <ul ng-repeat="uri in data">
+                    <li> <span>{{uri.textUri}}</span> <span style="cursor: pointer;" ng-click="view(uri.textUri)">[view]</span></li>
+                </ul>
+        </div>
+        <div style="float: left; margin-top: 10px; margin-left: 30px">
+            <header ng-if="content"><h2>Text Content</h2></header>
+            <div style="padding: 50px; max-width: 600px; text-align: justify">{{content}}</div>
+        </div>
     </body>
 
 </html>
