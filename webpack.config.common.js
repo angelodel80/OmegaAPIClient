@@ -6,7 +6,7 @@ const webpack = require('webpack');
 
 module.exports = {
   entry: {
-    index: './app.js',
+    //index: './app.js',
     vendor: './vendor.js',
     app: './app.js'
   },
