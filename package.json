@@ -12,11 +12,12 @@
     "bootstrap": "^4.1.1",
     "html-loader": "^0.5.5",
     "jquery": "^3.3.1",
+    "mark.js": "^8.11.1",
     "popper": "^1.0.1",
     "popper.js": "^1.14.3",
     "progress-bar-webpack-plugin": "^1.11.0"
   },
-  "name": "OmegaAPIClient",
+  "name": "omega-api-client",
   "version": "1.0.0",
   "main": "/scr/app.js",
   "repository": "https://github.com/angelodel80/OmegaAPIClient.git",

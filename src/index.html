@@ -1,29 +1,62 @@
-<html >
+<html>
 
-    <head>
-       <!--script src="/assets/app.bundle.js"></script-->
-    </head>
+<head>
+    <!--script src="/assets/app.bundle.js"></script-->
+    <style>
+        mark {
+            background: orange;
+            color: black;
+        }
+    </style>
+</head>
 
-    <body data-ng-app="OmegaRest" data-ng-controller="omegaRestCtr">
+<body data-ng-app="OmegaRest" data-ng-controller="omegaRestCtr">
 
-        <div id="header" style="text-align:  center; background-color: cadetblue">{{name}}</div>
+    <div id="header" style="text-align:  center; background-color: cadetblue">{{name}}</div>
 
-        <h1 style="text-align: center">{{name}}</h1>
-       
-        <div ng-click="action()" style="text-align: center">
-            <img style="cursor: pointer" src="https://upload.wikimedia.org/wikipedia/commons/2/29/Red_button.png">
-        </div>
+    <h1 style="text-align: center">{{name}}</h1>
 
-        <div style="margin-top: 10px; width: 300px; float: left;">
-            <header ng-if="data"><h2>List of sources<h2></header>
-                <ul ng-repeat="uri in data">
-                    <li> <span>{{uri.textUri}}</span> <span style="cursor: pointer;" ng-click="view(uri.textUri)">[view]</span></li>
-                </ul>
-        </div>
-        <div style="float: left; margin-top: 10px; margin-left: 30px">
-            <header ng-if="content"><h2>Text Content</h2></header>
-            <div style="padding: 50px; max-width: 600px; text-align: justify">{{content}}</div>
-        </div>
-    </body>
+    <div ng-click="action()" style="text-align: center">
+        <img style="cursor: pointer" src="https://upload.wikimedia.org/wikipedia/commons/2/29/Red_button.png">
+    </div>
+
+    <div style="margin-top: 10px; width: 300px; float: left;">
+        <form ng-if="data" ng-submit="search(keyword)" name="myForm" class="form-horizontal">
+
+            <div class="form-actions floatRight">
+                <input type="search" ng-model="keyword" />
+                <input type="submit" value="Search" class="btn btn-primary btn-sm" />
+            </div>
+
+        </form>
+        <header ng-if="data">
+            <h2>List of sources</h2>
+
+        </header>
+        <ul ng-repeat="uri in data">
+            <li>
+                <span ng-if="uri.textUri">{{uri.textUri}}</span>
+                <span ng-if="uri.textUri" style="cursor: pointer;" ng-click="view(uri.textUri)">[view]</span>
+
+                <span ng-if="uri.uri">{{uri.uri}}</span>
+                <span ng-if="uri.uri" style="cursor: pointer;" ng-click="view(uri.uri)">[view]</span>
+
+            </li>
+        </ul>
+    </div>
+    <div style="float: left; margin-top: 10px; margin-left: 30px">
+        <header ng-if="content">
+            <h2>Text Content</h2>
+        </header>
+        <div id="textContent" style="padding: 1px; max-width: 600px; text-align: justify">{{content}}</div>
+        <div id="content" style="padding: 50px; max-width: 600px; text-align: justify" ></div>
+    </div>
+    <div style="float: left; margin-top: 10px; margin-left: 30px">
+        <header ng-if="contextual">
+            <h2>ConTextual Data</h2>
+        </header>
+        <div style="padding: 50px; max-width: 150px; text-align: right">{{contextual}}</div>
+    </div>
+</body>
 
 </html>
