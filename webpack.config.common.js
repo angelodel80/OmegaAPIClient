@@ -75,6 +75,7 @@ module.exports = {
       jQuery: 'jquery',
       Popper: 'popper',
       Tether: 'tether',
+      Mark:   'mark.js',
       
     })
   ]
